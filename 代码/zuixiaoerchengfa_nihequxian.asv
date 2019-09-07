@@ -1,0 +1,4 @@
+a=xlsread('one.xlsx');
+%xlswrite('one.xlsx',a)
+%type('a')
+for i
