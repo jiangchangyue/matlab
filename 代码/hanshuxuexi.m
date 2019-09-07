@@ -1,4 +1,3 @@
-% coding: utf-8
 num1=input('ÊäÈënum1£º');
 num2=input('ÊäÈënum2£º');
 f1=@add;
