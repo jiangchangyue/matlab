@@ -1,5 +1,6 @@
-num1=input('ÊäÈënum1£º');
-num2=input('ÊäÈënum2£º');
+% coding: utf-8
+num1=input('ÃŠÃ¤ÃˆÃ«num1Â£Âº');
+num2=input('ÃŠÃ¤ÃˆÃ«num2Â£Âº');
 f1=@add;
 f2=@mutip;
 f3=@Fibonacci;
