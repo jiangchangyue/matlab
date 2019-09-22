@@ -1,0 +1,33 @@
+%第八组数据鼓面倾斜计算
+clc,clear;
+syms d s l sinx cosx;
+a=[90,0,80,90,0,80,80,80];%初始时刻队员的用力大小情况
+d=0.22;%鼓身高度
+s=0.11;%鼓初始位置较绳子水平时下降距离
+l=1.7;%绳长
+sinx=(d/2+s)/l;%绳子与水平面的夹角的正弦值
+cosx=sqrt(1-sinx^2);%绳子与水平面的夹角的余弦值
+sum1=0;
+for i=a
+    sum1=sum1+i;
+end
+sum_y=sum1*sinx-3.6*9.8;%竖直方向上的合力
+sum_x1=abs(a(1)*cosx-a(5)*cosx);%余弦定理
+sum_x2=abs(a(2)*cosx-a(6)*cosx);
+sum_x3=abs(a(4)*cosx-a(8)*cosx);
+temp1=sum_x1^2+sum_x2^2;
+temp2=2*sum_x1*sum_x2;
+temp4=(180-3*360/8)*3.14/180;
+temp3=cos(temp4);
+sum_x11=sqrt(temp1-temp2*temp3);
+cosx1=(sum_x2^2+sum_x11^2-sum_x1^2)/(2*sum_x2*sum_x11);
+degree=90*acos(cosx1)/acos(0)+90;
+tep1=sum_x11^2+sum_x3^2;
+tep2=2*sum_x11*sum_x3;
+tep4=degree*3.14/180;
+tep3=cos(tep4);
+sum_x=sqrt(tep1-tep2*tep3);%两次余弦定理求水平方向力
+%sum_x=sqrt(sum_x^2+sum_x^2-2*sum_x*sum_x*cos((180-360/8)*3.14/180));
+sum=atan(sum_y/sum_x);%总倾斜角的正切值
+ans8=sum*45/atan(1);%倾斜角
+ans8
